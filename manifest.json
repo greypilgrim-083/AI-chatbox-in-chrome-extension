@@ -1,0 +1,38 @@
+
+{
+  "manifest_version": 3,
+  "name": "AI",
+  "version": "2.0",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+  "https://leetcode.com/*",
+  "https://codeforces.com/*",
+  "*://*/*notebook*",
+  "https://colab.google.com/*",
+  "https://*.jupyter.org/*",
+  "http://localhost:*/*",
+  "https://generativelanguage.googleapis.com/*"
+
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+  {
+    "matches": [
+      "https://leetcode.com/*",
+      "https://codeforces.com/*",
+      "*://*/*notebook*",
+      "https://colab.research.google.com/*"
+    ],
+    "js": ["content.js"]
+  }
+]
+}
